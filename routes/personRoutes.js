@@ -43,4 +43,18 @@ router.post('/', async (req, res) => {
       }
   })
 
+  router.delete('/:id', async (req, res) => {
+    try {
+      
+      await Person.findByIdAndRemove(req.params.id);
+     
+ 
+      return res.send('deletado');
+
+    }catch(err) {
+      res.status(500).send({erro: 'nao foi deletado'});
+    }
+
+  })
+
   module.exports = router;
