@@ -14,8 +14,10 @@ app.use(
 app.use(express.json());
 
 const personRoutes = require('./routes/personRoutes');
+const transactionRoutes = require('./routes/transactionRoutes');
 
 app.use('/person', personRoutes)
+app.use('/transaction', transactionRoutes)
 
 
 
