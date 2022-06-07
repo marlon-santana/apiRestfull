@@ -1,6 +1,10 @@
 const router = require('express').Router();
+const middleware = require('../middleware/cors');
+
 
 const Transaction = require('../models/transactions');
+
+router.use(middleware)
 
 router.get('/', async (req, res) => {
     try{
