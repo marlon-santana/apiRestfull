@@ -17,12 +17,11 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const { title, value,  amount, category, type, createdAt } = req.body
+    const { title,  amount, category, type, createdAt } = req.body
 
     
     const transaction = {
      title,
-     value,
      amount,
      category,
      type,
