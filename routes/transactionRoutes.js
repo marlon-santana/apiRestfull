@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const { title,  amount, category, type, createdAt } = req.body
+    const { title,  amount, category, type } = req.body
 
     
     const transaction = {
@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
      amount,
      category,
      type,
-     createdAt
+    
     }
   
     try {
@@ -36,5 +36,16 @@ router.post('/', async (req, res) => {
       res.status(500).json({ erro: error })
     }
   })
+
+  router.delete('/:transactionId', async (req, res) => {
+    try {
+       await Transaction.findByIdAndRemove(req.params.transactionId);
+ 
+        return res.send('transaction apagada');
+ 
+    }catch(err) {
+        return res.status(400).send({ erro: 'Erro deleting project'});
+    }
+});
 
 module.exports = router;

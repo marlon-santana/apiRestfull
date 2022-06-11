@@ -6,7 +6,7 @@ const Transaction = mongoose.model('Transaction', {
     amount: Number,
     category: String,
     type: String,
-    createdAt: Number, // tem q ser new Date()
+    createdAt: String, // tem q ser new Date()
   })
   
   module.exports = Transaction
